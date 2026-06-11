@@ -1,4 +1,4 @@
-version: "3.9"
+
 
 services:
   postgres:
@@ -6,12 +6,13 @@ services:
     container_name: seip_postgres
     environment:
       POSTGRES_DB: seip_db
-      POSTGRES_USER: seip_admin
-      POSTGRES_PASSWORD: change_me
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Krbgp01@
     ports:
       - "5432:5432"
     volumes:
       - seip_pgdata:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d
 
 volumes:
   seip_pgdata:
