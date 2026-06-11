@@ -1,0 +1,154 @@
+-- ==========================================================
+-- SEIP Phase 5A — Core Power BI DAX Measures
+-- ==========================================================
+
+-- Population and survey measures
+
+Total Job Seekers =
+DISTINCTCOUNT ( vw_person_safe[person_key] )
+
+Total Survey Responses =
+COUNTROWS ( fact_job_seeker_survey )
+
+Total Employment Records =
+COUNTROWS ( fact_employment_status )
+
+-- Employment measures
+
+Employed Count =
+CALCULATE (
+    DISTINCTCOUNT ( fact_employment_status[person_key] ),
+    fact_employment_status[currently_employed] = TRUE()
+)
+
+Unemployed Count =
+CALCULATE (
+    DISTINCTCOUNT ( fact_employment_status[person_key] ),
+    fact_employment_status[currently_employed] = FALSE()
+)
+
+Seeking Work Count =
+CALCULATE (
+    DISTINCTCOUNT ( fact_employment_status[person_key] ),
+    fact_employment_status[seeking_work] = TRUE()
+)
+
+Unemployment Rate % =
+DIVIDE ( [Unemployed Count], [Total Job Seekers], 0 )
+
+Employment Rate % =
+DIVIDE ( [Employed Count], [Total Job Seekers], 0 )
+
+Seeking Work Rate % =
+DIVIDE ( [Seeking Work Count], [Total Job Seekers], 0 )
+
+Average Months Unemployed =
+AVERAGE ( fact_employment_status[months_unemployed] )
+
+Long-Term Unemployed Count =
+CALCULATE (
+    DISTINCTCOUNT ( fact_employment_status[person_key] ),
+    fact_employment_status[months_unemployed] >= 12
+)
+
+Long-Term Unemployment Rate % =
+DIVIDE ( [Long-Term Unemployed Count], [Unemployed Count], 0 )
+
+-- Youth measures
+
+Youth Job Seekers =
+CALCULATE (
+    [Total Job Seekers],
+    vw_person_safe[age] >= 15,
+    vw_person_safe[age] <= 34
+)
+
+Youth Unemployed Count =
+CALCULATE (
+    [Unemployed Count],
+    vw_person_safe[age] >= 15,
+    vw_person_safe[age] <= 34
+)
+
+Youth Unemployment Rate % =
+DIVIDE ( [Youth Unemployed Count], [Youth Job Seekers], 0 )
+
+-- Education and skills readiness
+
+Average NQF Level =
+AVERAGE ( vw_person_safe[nqf_level] )
+
+Matric or Higher Count =
+CALCULATE (
+    [Total Job Seekers],
+    NOT ISBLANK ( vw_person_safe[highest_qualification] ),
+    vw_person_safe[nqf_level] >= 4
+)
+
+Matric or Higher Rate % =
+DIVIDE ( [Matric or Higher Count], [Total Job Seekers], 0 )
+
+-- Digital access
+
+Smartphone Users =
+CALCULATE (
+    DISTINCTCOUNT ( fact_job_seeker_survey[person_key] ),
+    fact_job_seeker_survey[has_smartphone] = TRUE()
+)
+
+Smartphone Access Rate % =
+DIVIDE ( [Smartphone Users], [Total Job Seekers], 0 )
+
+Training Interest Count =
+CALCULATE (
+    DISTINCTCOUNT ( fact_job_seeker_survey[person_key] ),
+    fact_job_seeker_survey[training_interest] = TRUE()
+)
+
+Training Interest Rate % =
+DIVIDE ( [Training Interest Count], [Total Job Seekers], 0 )
+
+Willing To Relocate Count =
+CALCULATE (
+    DISTINCTCOUNT ( fact_job_seeker_survey[person_key] ),
+    fact_job_seeker_survey[willing_to_relocate] = TRUE()
+)
+
+Willing To Relocate Rate % =
+DIVIDE ( [Willing To Relocate Count], [Total Job Seekers], 0 )
+
+-- Quality and operational measures
+
+Average Completeness Score =
+AVERAGE ( fact_job_seeker_survey[completeness_score] )
+
+Average Quality Score =
+AVERAGE ( fact_job_seeker_survey[quality_score] )
+
+Low Quality Survey Count =
+CALCULATE (
+    COUNTROWS ( fact_job_seeker_survey ),
+    fact_job_seeker_survey[quality_score] < 70
+)
+
+Low Quality Survey Rate % =
+DIVIDE ( [Low Quality Survey Count], [Total Survey Responses], 0 )
+
+-- Ranking
+
+Township Unemployment Rank =
+RANKX (
+    ALL ( dim_location[township_code] ),
+    [Unemployment Rate %],
+    ,
+    DESC,
+    Dense
+)
+
+-- Display helpers
+
+Unemployment Rate Label =
+FORMAT ( [Unemployment Rate %], "0.0%" )
+
+Data Quality Label =
+FORMAT ( [Average Quality Score], "0.0" ) & " / 100"

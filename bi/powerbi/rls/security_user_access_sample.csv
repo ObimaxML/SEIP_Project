@@ -1,0 +1,5 @@
+user_email,role_name,township_code,access_level
+admin@seip.co.za,Admin,ALL,ALL
+analyst@seip.co.za,Analyst,SOWETO,TOWNSHIP
+ngo_soweto@seip.co.za,NGO,SOWETO,TOWNSHIP
+ngo_alex@seip.co.za,NGO,ALEXANDRA,TOWNSHIP

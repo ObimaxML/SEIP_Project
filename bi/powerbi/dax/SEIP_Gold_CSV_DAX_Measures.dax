@@ -1,0 +1,57 @@
+-- ==========================================================
+-- SEIP Phase 5A — DAX Measures for Databricks Gold CSV Imports
+-- Use these if importing:
+-- gold_unemployment_by_township
+-- gold_skills_training_demand
+-- gold_digital_access
+-- ==========================================================
+
+Total Job Seekers Gold =
+SUM ( gold_unemployment_by_township[total_job_seekers] )
+
+Total Employed Gold =
+SUM ( gold_unemployment_by_township[employed_count] )
+
+Total Unemployed Gold =
+SUM ( gold_unemployment_by_township[unemployed_count] )
+
+Unemployment Rate Gold % =
+DIVIDE ( [Total Unemployed Gold], [Total Job Seekers Gold], 0 )
+
+Average Months Unemployed Gold =
+AVERAGE ( gold_unemployment_by_township[avg_months_unemployed] )
+
+Youth Count Gold =
+SUM ( gold_unemployment_by_township[youth_count] )
+
+Total Training Demand =
+SUM ( gold_skills_training_demand[demand_count] )
+
+Total Training Interest =
+SUM ( gold_skills_training_demand[interested_count] )
+
+Training Interest Rate Gold % =
+DIVIDE ( [Total Training Interest], [Total Training Demand], 0 )
+
+Total Smartphone Users =
+SUM ( gold_digital_access[smartphone_users] )
+
+Total Internet Users =
+SUM ( gold_digital_access[internet_users] )
+
+Smartphone Access Gold % =
+DIVIDE ( [Total Smartphone Users], SUM ( gold_digital_access[total_job_seekers] ), 0 )
+
+Internet Access Gold % =
+DIVIDE ( [Total Internet Users], SUM ( gold_digital_access[total_job_seekers] ), 0 )
+
+Highest Risk Township =
+VAR rankedTownship =
+    TOPN (
+        1,
+        gold_unemployment_by_township,
+        gold_unemployment_by_township[unemployment_rate_pct],
+        DESC
+    )
+RETURN
+    CONCATENATEX ( rankedTownship, gold_unemployment_by_township[township], ", " )

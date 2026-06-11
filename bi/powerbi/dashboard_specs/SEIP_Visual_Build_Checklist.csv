@@ -1,0 +1,13 @@
+page,visual_name,visual_type,fields,done
+Executive Overview,Total Job Seekers Card,Card,Total Job Seekers,No
+Executive Overview,Unemployment Rate Card,Card,Unemployment Rate %,No
+Executive Overview,Township Unemployment Ranking,Clustered bar chart,township_code + Unemployment Rate %,No
+Executive Overview,Employment Split,Donut chart,currently_employed + Total Employment Records,No
+Township Profile,Ward Breakdown,Clustered column chart,ward_number + Unemployed Count,No
+Township Profile,Months Unemployed Distribution,Column chart,months_unemployed + Count person_key,No
+Youth and Skills,Preferred Training Area,Bar chart,preferred_training_area + Training Interest Count,No
+Youth and Skills,Qualification by Township,Stacked column chart,township_code + highest_qualification,No
+Digital Access,Smartphone Access by Township,Bar chart,township_code + Smartphone Access Rate %,No
+Digital Access,Transport Mode,Donut chart,transport_mode + Total Survey Responses,No
+Data Quality,Quality by Township,Bar chart,township_code + Average Quality Score,No
+Data Quality,Quality Trend,Line chart,survey_date + Average Quality Score,No

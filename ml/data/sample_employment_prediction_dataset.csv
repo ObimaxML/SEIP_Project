@@ -1,0 +1,9 @@
+person_key,gender_code,age,south_african_citizen,highest_qualification,education_level_code,field_of_study,nqf_level,township_code,ward_number,currently_employed,months_unemployed,seeking_work,preferred_sector,income_band,digital_literacy_level,has_smartphone,transport_mode,willing_to_relocate,training_interest,completeness_score,quality_score
+1,Male,28,True,Matric,GRADE_12,General,4,SOWETO,WARD_001,False,18,True,ICT,No income,Intermediate,True,Taxi,True,True,92,88
+2,Female,25,True,Diploma,DIPLOMA,Information Technology,6,ALEXANDRA,WARD_002,True,0,False,ICT,R4000-R7000,Advanced,True,Taxi,False,True,95,90
+3,Female,34,True,Matric,GRADE_12,General,4,DIEPSLOOT,WARD_003,False,24,True,Retail,No income,Basic,True,Taxi,True,True,85,80
+4,Male,41,True,Degree,DEGREE,Business,7,TEMBISA,WARD_004,True,0,False,Finance,R10000-R15000,Advanced,True,Car,False,False,90,87
+5,Female,22,True,Matric,GRADE_12,General,4,SOWETO,WARD_001,False,8,True,Retail,No income,Basic,True,Taxi,True,True,80,76
+6,Male,31,True,Diploma,DIPLOMA,Engineering,6,KATLEHONG,WARD_005,True,0,False,Manufacturing,R7000-R10000,Intermediate,True,Bus,False,False,91,89
+7,Female,29,True,Grade 9,GRADE_9,General,2,ORANGE_FARM,WARD_006,False,30,True,Hospitality,No income,None,False,Taxi,True,True,75,70
+8,Male,38,True,Certificate,CERTIFICATE,Plumbing,5,VOSLOORUS,WARD_007,True,0,False,Construction,R7000-R10000,Basic,True,Taxi,False,False,88,84

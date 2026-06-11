@@ -1,0 +1,22 @@
+table,column,power_bi_name,data_type,usage
+vw_person_safe,person_key,Person Key,Whole number,Relationship key
+vw_person_safe,gender_code,Gender,Text,Slicer
+vw_person_safe,age,Age,Whole number,Demographic analysis
+vw_person_safe,highest_qualification,Highest Qualification,Text,Slicer
+vw_person_safe,nqf_level,NQF Level,Whole number,Education analysis
+dim_location,location_key,Location Key,Whole number,Relationship key
+dim_location,township_code,Township Code,Text,Slicer/map
+dim_location,ward_number,Ward Number,Text,Slicer/map
+fact_employment_status,person_key,Person Key,Whole number,Relationship key
+fact_employment_status,location_key,Location Key,Whole number,Relationship key
+fact_employment_status,survey_date,Survey Date,Date,Time analysis
+fact_employment_status,currently_employed,Currently Employed,True/False,Measure filter
+fact_employment_status,months_unemployed,Months Unemployed,Whole number,KPI
+fact_employment_status,seeking_work,Seeking Work,True/False,KPI
+fact_job_seeker_survey,person_key,Person Key,Whole number,Relationship key
+fact_job_seeker_survey,location_key,Location Key,Whole number,Relationship key
+fact_job_seeker_survey,digital_literacy_level,Digital Literacy Level,Text,Slicer/chart
+fact_job_seeker_survey,has_smartphone,Has Smartphone,True/False,KPI
+fact_job_seeker_survey,transport_mode,Transport Mode,Text,Chart
+fact_job_seeker_survey,training_interest,Training Interest,True/False,KPI
+fact_job_seeker_survey,quality_score,Quality Score,Decimal,KPI

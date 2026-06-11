@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgis/postgis:16-3.4
+    container_name: seip_postgres
+    environment:
+      POSTGRES_DB: seip_db
+      POSTGRES_USER: seip_admin
+      POSTGRES_PASSWORD: change_me
+    ports:
+      - "5432:5432"
+    volumes:
+      - seip_pgdata:/var/lib/postgresql/data
+
+volumes:
+  seip_pgdata:
