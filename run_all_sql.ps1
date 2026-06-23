@@ -1,6 +1,6 @@
-$container = "seip_postgres"
+$container = "seip_postgres_airflow"
 $db = "seip_db"
-$user = "seip_admin"
+$user = "postgres"
 
 $sqlFiles = @(
     "sql/00_extensions.sql",

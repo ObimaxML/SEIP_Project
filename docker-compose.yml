@@ -1,18 +1,49 @@
-
-
 services:
-  postgres:
+  seip_postgres:
     image: postgis/postgis:16-3.4
-    container_name: seip_postgres
+    container_name: seip_postgres_airflow
     environment:
       POSTGRES_DB: seip_db
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: Krbgp01@
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
-      - seip_pgdata:/var/lib/postgresql/data
-      - ./sql:/docker-entrypoint-initdb.d
+      - seip_postgres_data:/var/lib/postgresql/data
+
+  airflow-webserver:
+    image: apache/airflow:2.9.3
+    container_name: airflow-webserver
+    depends_on:
+      - seip_postgres
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://postgres:Krbgp01%40@seip_postgres:5432/seip_db
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+      AIRFLOW__WEBSERVER__SECRET_KEY: seip_airflow_secret_key
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./airflow/plugins:/opt/airflow/plugins
+    ports:
+      - "8080:8080"
+    command: webserver
+
+  airflow-scheduler:
+    image: apache/airflow:2.9.3
+    container_name: airflow-scheduler
+    depends_on:
+      - airflow-webserver
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://postgres:Krbgp01%40@seip_postgres:5432/seip_db
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+      AIRFLOW__WEBSERVER__SECRET_KEY: seip_airflow_secret_key
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./airflow/plugins:/opt/airflow/plugins
+    command: scheduler
 
 volumes:
-  seip_pgdata:
+  seip_postgres_data:

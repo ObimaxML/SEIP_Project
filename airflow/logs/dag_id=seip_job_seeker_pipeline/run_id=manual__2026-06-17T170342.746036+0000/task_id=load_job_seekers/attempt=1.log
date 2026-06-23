@@ -1,0 +1,40 @@
+[2026-06-17T17:03:43.863+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-17T17:03:43.913+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: seip_job_seeker_pipeline.load_job_seekers manual__2026-06-17T17:03:42.746036+00:00 [queued]>
+[2026-06-17T17:03:43.921+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: seip_job_seeker_pipeline.load_job_seekers manual__2026-06-17T17:03:42.746036+00:00 [queued]>
+[2026-06-17T17:03:43.922+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-06-17T17:03:43.934+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): load_job_seekers> on 2026-06-17 17:03:42.746036+00:00
+[2026-06-17T17:03:43.943+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'seip_job_seeker_pipeline', 'load_job_seekers', 'manual__2026-06-17T17:03:42.746036+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/seip_job_seeker_pipeline.py', '--cfg-path', '/tmp/tmpefrlcsfh']
+[2026-06-17T17:03:43.946+0000] {standard_task_runner.py:91} INFO - Job 5: Subtask load_job_seekers
+[2026-06-17T17:03:43.946+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=873) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-17T17:03:43.947+0000] {standard_task_runner.py:64} INFO - Started process 874 to run task
+[2026-06-17T17:03:43.991+0000] {task_command.py:426} INFO - Running <TaskInstance: seip_job_seeker_pipeline.load_job_seekers manual__2026-06-17T17:03:42.746036+00:00 [running]> on host 67a30458eaf9
+[2026-06-17T17:03:44.079+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='seip_job_seeker_pipeline' AIRFLOW_CTX_TASK_ID='load_job_seekers' AIRFLOW_CTX_EXECUTION_DATE='2026-06-17T17:03:42.746036+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-06-17T17:03:42.746036+00:00'
+[2026-06-17T17:03:44.081+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-17T17:03:44.145+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-17T17:03:44.146+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/seip_job_seeker_pipeline.py", line 11, in run_job_seeker_etl
+    subprocess.run(
+  File "/usr/local/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python', 'run_phase_3b_job_seeker_to_postgres.py']' returned non-zero exit status 2.
+[2026-06-17T17:03:44.159+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=seip_job_seeker_pipeline, task_id=load_job_seekers, run_id=manual__2026-06-17T17:03:42.746036+00:00, execution_date=20260617T170342, start_date=20260617T170343, end_date=20260617T170344
+[2026-06-17T17:03:44.173+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 5 for task load_job_seekers (Command '['python', 'run_phase_3b_job_seeker_to_postgres.py']' returned non-zero exit status 2.; 874)
+[2026-06-17T17:03:44.202+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-06-17T17:03:44.232+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-17T17:03:44.237+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
