@@ -14,7 +14,7 @@ def test_hash_value_is_repeatable_case_insensitive():
     assert protector.hash_value("ABC") == protector.hash_value("abc")
 
 def test_valid_sa_id_luhn_accepts_valid_sample():
-    assert valid_sa_id_luhn("9001015009081") is True
+    assert valid_sa_id_luhn("8001015009087") is True
 
 def test_valid_sa_id_luhn_rejects_invalid_sample():
     assert valid_sa_id_luhn("1234567890123") is False

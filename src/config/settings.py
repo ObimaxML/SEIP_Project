@@ -8,8 +8,8 @@ load_dotenv()
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 POSTGRES_DB = os.getenv("POSTGRES_DB", "seip_db")
-POSTGRES_USER = os.getenv("POSTGRES_USER", "seip_admin")
-POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD", "change_me")
+POSTGRES_USER = os.getenv("POSTGRES_USER", "postgres")
+POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD", "Krbgp012")
 POSTGRES_HOST = os.getenv("POSTGRES_HOST", "localhost")
 POSTGRES_PORT = os.getenv("POSTGRES_PORT", "5432")
 

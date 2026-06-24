@@ -18,7 +18,10 @@ class PostgresLoader:
     def clean_date(self, value):
         if pd.isna(value) or value == "":
             return None
-        return pd.to_datetime(value).date()
+        try:
+            return pd.to_datetime(value).date()
+        except Exception:
+            return None
 
     def start_etl_run(self, pipeline_name, source_file_name, records_received):
         sql = text("""
@@ -50,7 +53,7 @@ class PostgresLoader:
             })
 
     def insert_staging(self, conn, row, status, errors):
-        payload = row.to_dict()
+        payload = row.where(pd.notna(row), None).to_dict()
         sql = text("""
             INSERT INTO seip_staging.stg_job_seeker
             (source_file_name, raw_payload, validation_status, validation_errors)
@@ -66,13 +69,21 @@ class PostgresLoader:
     def upsert_location(self, conn, row):
         township = str(row.get("township", "")).strip().upper()
         ward = row.get("ward_number")
+        # Ensure ward is None if it is NaN or empty, otherwise force to int
+        if pd.isna(ward) or ward == "":
+            ward = None
+        else:
+            ward = str(ward).strip()
+
         suburb = row.get("suburb")
+        if pd.isna(suburb) or suburb == "":
+            suburb = None
 
         existing = conn.execute(text("""
             SELECT location_key FROM seip_core.dim_location
             WHERE township_code=:township
-              AND COALESCE(ward_number,'')=COALESCE(:ward,'')
-              AND COALESCE(suburb,'')=COALESCE(:suburb,'')
+              AND ward_number IS NOT DISTINCT FROM :ward
+              AND suburb IS NOT DISTINCT FROM :suburb
             LIMIT 1
         """), {"township": township, "ward": ward, "suburb": suburb}).scalar()
 

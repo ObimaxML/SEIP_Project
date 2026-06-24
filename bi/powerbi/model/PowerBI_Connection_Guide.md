@@ -25,8 +25,8 @@ seip_db
 
 ```text
 Database
-Username: seip_admin
-Password: change_me
+Username: postgres
+Password: Krbgp012
 ```
 
 7. Select these tables/views:

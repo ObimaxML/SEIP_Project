@@ -1,0 +1,12 @@
+metric,value
+records_received,502.0
+records_accepted,44.0
+records_rejected,458.0
+acceptance_rate_pct,8.76
+rejection_rate_pct,91.24
+error_AGE_RANGE_VALID,1.0
+error_CONSENT_REQUIRED,1.0
+error_GPS_IN_GAUTENG,1.0
+error_NQF_LEVEL_VALID,1.0
+error_SA_ID_LUHN_VALID,447.0
+error_TOWNSHIP_VALID,70.0
