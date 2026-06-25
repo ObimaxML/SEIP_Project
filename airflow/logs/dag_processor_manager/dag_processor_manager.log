@@ -44323,3 +44323,57 @@ File Path                                                   PID    Runtime      
 ================================================================================
 [2026-06-25T08:43:12.470+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
 [2026-06-25T08:43:12.506+0000] {manager.py:740} INFO - There are 2 files in /opt/airflow/dags
+[2026-06-25T08:43:26.745+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/seip_databricks_lakehouse_placeholder.py                           1           0  0.12s           2026-06-25T08:43:18
+/opt/airflow/dags/seip_job_seeker_pipeline.py                                        1           0  0.12s           2026-06-25T08:43:18
+================================================================================
+[2026-06-25T08:43:57.044+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/seip_job_seeker_pipeline.py                                        1           0  0.10s           2026-06-25T08:43:48
+/opt/airflow/dags/seip_databricks_lakehouse_placeholder.py                           1           0  0.10s           2026-06-25T08:43:48
+================================================================================
+[2026-06-25T08:44:27.527+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/seip_job_seeker_pipeline.py                                        1           0  0.23s           2026-06-25T08:44:19
+/opt/airflow/dags/seip_databricks_lakehouse_placeholder.py                           1           0  0.22s           2026-06-25T08:44:19
+================================================================================
+[2026-06-25T08:44:58.021+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/seip_job_seeker_pipeline.py                                        1           0  0.25s           2026-06-25T08:44:50
+/opt/airflow/dags/seip_databricks_lakehouse_placeholder.py                           1           0  0.16s           2026-06-25T08:44:49
+================================================================================
+[2026-06-25T08:45:28.302+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/seip_job_seeker_pipeline.py                                        1           0  0.12s           2026-06-25T08:45:20
+/opt/airflow/dags/seip_databricks_lakehouse_placeholder.py                           1           0  0.11s           2026-06-25T08:45:20
+================================================================================
+[2026-06-25T08:45:58.686+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/seip_job_seeker_pipeline.py                                        1           0  0.13s           2026-06-25T08:45:50
+/opt/airflow/dags/seip_databricks_lakehouse_placeholder.py                           1           0  0.11s           2026-06-25T08:45:50
+================================================================================

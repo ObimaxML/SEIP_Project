@@ -1671,3 +1671,31 @@
 [2026-06-25T08:43:48.953+0000] {logging_mixin.py:188} INFO - [2026-06-25T08:43:48.953+0000] {dag.py:3089} INFO - Sync 1 DAGs
 [2026-06-25T08:43:48.969+0000] {logging_mixin.py:188} INFO - [2026-06-25T08:43:48.969+0000] {dag.py:3947} INFO - Setting next_dagrun for seip_job_seeker_pipeline to 2026-06-25 00:00:00+00:00, run_after=2026-06-26 00:00:00+00:00
 [2026-06-25T08:43:48.984+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/seip_job_seeker_pipeline.py took 0.079 seconds
+[2026-06-25T08:44:19.488+0000] {processor.py:161} INFO - Started process (PID=15895) to work on /opt/airflow/dags/seip_job_seeker_pipeline.py
+[2026-06-25T08:44:19.490+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/seip_job_seeker_pipeline.py for tasks to queue
+[2026-06-25T08:44:19.492+0000] {logging_mixin.py:188} INFO - [2026-06-25T08:44:19.491+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/seip_job_seeker_pipeline.py
+[2026-06-25T08:44:19.517+0000] {processor.py:840} INFO - DAG(s) 'seip_job_seeker_pipeline' retrieved from /opt/airflow/dags/seip_job_seeker_pipeline.py
+[2026-06-25T08:44:19.588+0000] {logging_mixin.py:188} INFO - [2026-06-25T08:44:19.588+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-06-25T08:44:19.643+0000] {logging_mixin.py:188} INFO - [2026-06-25T08:44:19.643+0000] {dag.py:3947} INFO - Setting next_dagrun for seip_job_seeker_pipeline to 2026-06-25 00:00:00+00:00, run_after=2026-06-26 00:00:00+00:00
+[2026-06-25T08:44:19.669+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/seip_job_seeker_pipeline.py took 0.190 seconds
+[2026-06-25T08:44:49.837+0000] {processor.py:161} INFO - Started process (PID=15905) to work on /opt/airflow/dags/seip_job_seeker_pipeline.py
+[2026-06-25T08:44:49.851+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/seip_job_seeker_pipeline.py for tasks to queue
+[2026-06-25T08:44:49.853+0000] {logging_mixin.py:188} INFO - [2026-06-25T08:44:49.852+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/seip_job_seeker_pipeline.py
+[2026-06-25T08:44:49.884+0000] {processor.py:840} INFO - DAG(s) 'seip_job_seeker_pipeline' retrieved from /opt/airflow/dags/seip_job_seeker_pipeline.py
+[2026-06-25T08:44:49.916+0000] {logging_mixin.py:188} INFO - [2026-06-25T08:44:49.915+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-06-25T08:44:49.933+0000] {logging_mixin.py:188} INFO - [2026-06-25T08:44:49.933+0000] {dag.py:3947} INFO - Setting next_dagrun for seip_job_seeker_pipeline to 2026-06-25 00:00:00+00:00, run_after=2026-06-26 00:00:00+00:00
+[2026-06-25T08:44:50.027+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/seip_job_seeker_pipeline.py took 0.196 seconds
+[2026-06-25T08:45:20.224+0000] {processor.py:161} INFO - Started process (PID=15915) to work on /opt/airflow/dags/seip_job_seeker_pipeline.py
+[2026-06-25T08:45:20.226+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/seip_job_seeker_pipeline.py for tasks to queue
+[2026-06-25T08:45:20.227+0000] {logging_mixin.py:188} INFO - [2026-06-25T08:45:20.227+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/seip_job_seeker_pipeline.py
+[2026-06-25T08:45:20.238+0000] {processor.py:840} INFO - DAG(s) 'seip_job_seeker_pipeline' retrieved from /opt/airflow/dags/seip_job_seeker_pipeline.py
+[2026-06-25T08:45:20.270+0000] {logging_mixin.py:188} INFO - [2026-06-25T08:45:20.270+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-06-25T08:45:20.289+0000] {logging_mixin.py:188} INFO - [2026-06-25T08:45:20.289+0000] {dag.py:3947} INFO - Setting next_dagrun for seip_job_seeker_pipeline to 2026-06-25 00:00:00+00:00, run_after=2026-06-26 00:00:00+00:00
+[2026-06-25T08:45:20.312+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/seip_job_seeker_pipeline.py took 0.094 seconds
+[2026-06-25T08:45:50.527+0000] {processor.py:161} INFO - Started process (PID=15925) to work on /opt/airflow/dags/seip_job_seeker_pipeline.py
+[2026-06-25T08:45:50.529+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/seip_job_seeker_pipeline.py for tasks to queue
+[2026-06-25T08:45:50.530+0000] {logging_mixin.py:188} INFO - [2026-06-25T08:45:50.529+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/seip_job_seeker_pipeline.py
+[2026-06-25T08:45:50.542+0000] {processor.py:840} INFO - DAG(s) 'seip_job_seeker_pipeline' retrieved from /opt/airflow/dags/seip_job_seeker_pipeline.py
+[2026-06-25T08:45:50.577+0000] {logging_mixin.py:188} INFO - [2026-06-25T08:45:50.577+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-06-25T08:45:50.596+0000] {logging_mixin.py:188} INFO - [2026-06-25T08:45:50.596+0000] {dag.py:3947} INFO - Setting next_dagrun for seip_job_seeker_pipeline to 2026-06-25 00:00:00+00:00, run_after=2026-06-26 00:00:00+00:00
+[2026-06-25T08:45:50.618+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/seip_job_seeker_pipeline.py took 0.098 seconds
