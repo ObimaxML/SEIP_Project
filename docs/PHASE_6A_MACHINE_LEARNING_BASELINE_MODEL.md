@@ -8,6 +8,24 @@ The goal is to create a baseline model that predicts whether a job seeker is lik
 
 This is not yet the final production model. It is a baseline to prove the ML workflow.
 
+The statement is highly plausible and describes a common starting point for labor market analysis, economic research, or the development of HR technology.
+
+Creating a baseline model using these specific features is a standard practice for several reasons:
+
+## Feature Relevance
+The features mentioned—demographics, education, location, digital access, and survey responses—are all well-documented predictors of employment status. For instance, education level typically correlates with employment rates, while digital access is a critical barrier or enabler in the modern job market.
+
+## Defining a "Baseline"
+In machine learning, a baseline model provides a simple benchmark (often using a basic algorithm like Logistic Regression or a Random Forest) to compare against more complex models later. The goal is to see how much predictive power these fundamental variables have before moving to more advanced transformations.
+
+## Predictive Validity
+While survey data can sometimes have biases, combining it with objective data like location and education allows a model to capture both the structural environment and the individual’s specific situation.
+
+## Practical Use Cases
+Such a model could be used by NGOs to identify vulnerable populations who need job-seeking support or by government agencies to understand which "digital access" gaps are most strongly linked to unemployment in specific regions.
+
+In summary, the statement describes a logically sound and technically standard objective for a data science project in the social or economic domain.
+
 ## Files added
 
 ```text
