@@ -6,7 +6,7 @@ services:
     environment:
       POSTGRES_DB: seip_db
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: Krbgp01@
+      POSTGRES_PASSWORD: Krbgp012
     ports:
       - "5432:5432"
     volumes:
@@ -19,7 +19,7 @@ services:
       - seip_postgres
     environment:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
-      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://postgres:Krbgp01%40@seip_postgres:5432/seip_db
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://postgres:Krbgp012@seip_postgres:5432/seip_db
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
       AIRFLOW__WEBSERVER__SECRET_KEY: seip_airflow_secret_key
     volumes:
@@ -37,7 +37,7 @@ services:
       - airflow-webserver
     environment:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
-      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://postgres:Krbgp01%40@seip_postgres:5432/seip_db
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://postgres:Krbgp012@seip_postgres:5432/seip_db
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
       AIRFLOW__WEBSERVER__SECRET_KEY: seip_airflow_secret_key
     volumes:
