@@ -1,0 +1,50 @@
+{
+  "rows": 3375,
+  "train_rows": 2362,
+  "test_rows": 1013,
+  "accuracy": 1.0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "roc_auc": 0.9999999999999999,
+  "classification_report": {
+    "False": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 497.0
+    },
+    "True": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 516.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 1013.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 1013.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      497,
+      0
+    ],
+    [
+      0,
+      516
+    ]
+  ],
+  "target": "currently_employed",
+  "positive_class": "currently_employed = TRUE",
+  "model_type": "LogisticRegression baseline"
+}

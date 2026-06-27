@@ -33,7 +33,7 @@ sql/16_powerbi_views.sql
 From VS Code:
 
 ```powershell
-Get-Content sql/16_powerbi_views.sql | docker exec -i seip_postgres psql -U seip_admin -d seip_db
+Get-Content sql/16_powerbi_views.sql | docker exec -i seip_postgres_airflow psql -U postgres -d seip_db
 ```
 
 This creates cleaner Power BI-facing views:
