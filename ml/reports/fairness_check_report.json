@@ -1,0 +1,60 @@
+{
+  "note": "This is a basic fairness diagnostic. It does not prove fairness or remove bias.",
+  "group_metrics": [
+    {
+      "group_column": "gender_code",
+      "group_value": "Female",
+      "records": 4,
+      "actual_positive_rate": 0.25,
+      "predicted_positive_rate": 0.25,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    {
+      "group_column": "gender_code",
+      "group_value": "Male",
+      "records": 4,
+      "actual_positive_rate": 0.75,
+      "predicted_positive_rate": 0.75,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    {
+      "group_column": "township_code",
+      "group_value": "SOWETO",
+      "records": 2,
+      "actual_positive_rate": 0.0,
+      "predicted_positive_rate": 0.0,
+      "accuracy": 1.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    {
+      "group_column": "age_band",
+      "group_value": "25-34",
+      "records": 5,
+      "actual_positive_rate": 0.4,
+      "predicted_positive_rate": 0.4,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    {
+      "group_column": "age_band",
+      "group_value": "35-44",
+      "records": 2,
+      "actual_positive_rate": 1.0,
+      "predicted_positive_rate": 1.0,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    }
+  ]
+}

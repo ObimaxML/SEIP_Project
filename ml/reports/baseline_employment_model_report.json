@@ -1,47 +1,47 @@
 {
-  "rows": 3375,
-  "train_rows": 2362,
-  "test_rows": 1013,
+  "rows": 8,
+  "train_rows": 5,
+  "test_rows": 3,
   "accuracy": 1.0,
   "precision": 1.0,
   "recall": 1.0,
   "f1": 1.0,
-  "roc_auc": 0.9999999999999999,
+  "roc_auc": 1.0,
   "classification_report": {
     "False": {
       "precision": 1.0,
       "recall": 1.0,
       "f1-score": 1.0,
-      "support": 497.0
+      "support": 2.0
     },
     "True": {
       "precision": 1.0,
       "recall": 1.0,
       "f1-score": 1.0,
-      "support": 516.0
+      "support": 1.0
     },
     "accuracy": 1.0,
     "macro avg": {
       "precision": 1.0,
       "recall": 1.0,
       "f1-score": 1.0,
-      "support": 1013.0
+      "support": 3.0
     },
     "weighted avg": {
       "precision": 1.0,
       "recall": 1.0,
       "f1-score": 1.0,
-      "support": 1013.0
+      "support": 3.0
     }
   },
   "confusion_matrix": [
     [
-      497,
+      2,
       0
     ],
     [
       0,
-      516
+      1
     ]
   ],
   "target": "currently_employed",
