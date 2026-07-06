@@ -59,16 +59,15 @@ DIVIDE ( [Long-Term Unemployed Count], [Unemployed Count], 0 )
 Youth Job Seekers =
 CALCULATE (
     [Total Job Seekers],
-    vw_person_safe[age] >= 15,
-    vw_person_safe[age] <= 34
+    'seip_core vw_person_safe'[age] >= 15,
+    'seip_core vw_person_safe'[age] <= 34
 )
 
 Youth Unemployed Count =
 CALCULATE (
     [Unemployed Count],
-    vw_person_safe[age] >= 15,
-    vw_person_safe[age] <= 34
-)
+    'seip_core vw_person_safe'[age] >= 15,
+    'seip_core vw_person_safe'[age] <= 34)
 
 Youth Unemployment Rate % =
 DIVIDE ( [Youth Unemployed Count], [Youth Job Seekers], 0 )
@@ -76,13 +75,13 @@ DIVIDE ( [Youth Unemployed Count], [Youth Job Seekers], 0 )
 -- Education and skills readiness
 
 Average NQF Level =
-AVERAGE ( vw_person_safe[nqf_level] )
+AVERAGE ( 'seip_core vw_person_safe'[nqf_level] )
 
 Matric or Higher Count =
 CALCULATE (
     [Total Job Seekers],
-    NOT ISBLANK ( vw_person_safe[highest_qualification] ),
-    vw_person_safe[nqf_level] >= 4
+    NOT ISBLANK ( 'seip_core vw_person_safe'[highest_qualification] ),
+    'seip_core vw_person_safe'[nqf_level] >= 4
 )
 
 Matric or Higher Rate % =

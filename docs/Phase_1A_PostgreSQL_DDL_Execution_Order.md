@@ -625,17 +625,17 @@ GRANT SELECT ON seip_core.vw_skills_gap TO seip_analyst, seip_viewer;
 From VS Code terminal:
 
 ```bash
-docker exec -i seip_postgres psql -U seip_admin -d seip_db < sql/00_extensions.sql
-docker exec -i seip_postgres psql -U seip_admin -d seip_db < sql/01_schemas.sql
-docker exec -i seip_postgres psql -U seip_admin -d seip_db < sql/02_reference_tables.sql
-docker exec -i seip_postgres psql -U seip_admin -d seip_db < sql/03_dimensions.sql
-docker exec -i seip_postgres psql -U seip_admin -d seip_db < sql/04_bridge_tables.sql
-docker exec -i seip_postgres psql -U seip_admin -d seip_db < sql/05_staging_tables.sql
-docker exec -i seip_postgres psql -U seip_admin -d seip_db < sql/06_fact_tables.sql
-docker exec -i seip_postgres psql -U seip_admin -d seip_db < sql/07_audit_tables.sql
-docker exec -i seip_postgres psql -U seip_admin -d seip_db < sql/08_indexes.sql
-docker exec -i seip_postgres psql -U seip_admin -d seip_db < sql/09_views.sql
-docker exec -i seip_postgres psql -U seip_admin -d seip_db < sql/10_rbac.sql
+docker exec -i seip_postgres psql -U postgres -d seip_db < sql/00_extensions.sql
+docker exec -i seip_postgres psql -U postgres -d seip_db < sql/01_schemas.sql
+docker exec -i seip_postgres psql -U postgres -d seip_db < sql/02_reference_tables.sql
+docker exec -i seip_postgres psql -U postgres -d seip_db < sql/03_dimensions.sql
+docker exec -i seip_postgres psql -U postgres -d seip_db < sql/04_bridge_tables.sql
+docker exec -i seip_postgres psql -U postgres -d seip_db < sql/05_staging_tables.sql
+docker exec -i seip_postgres psql -U postgres -d seip_db < sql/06_fact_tables.sql
+docker exec -i seip_postgres psql -U postgres -d seip_db < sql/07_audit_tables.sql
+docker exec -i seip_postgres psql -U postgres -d seip_db < sql/08_indexes.sql
+docker exec -i seip_postgres psql -U postgres -d seip_db < sql/09_views.sql
+docker exec -i seip_postgres psql -U postgres -d seip_db < sql/10_rbac.sql
 ```
 
 ---

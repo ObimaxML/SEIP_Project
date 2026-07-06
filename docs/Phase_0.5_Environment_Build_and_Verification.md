@@ -130,8 +130,8 @@ services:
     container_name: seip_postgres
     environment:
       POSTGRES_DB: seip_db
-      POSTGRES_USER: seip_admin
-      POSTGRES_PASSWORD: change_me
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Krbgp012
     ports:
       - "5432:5432"
     volumes:
@@ -167,7 +167,7 @@ seip_postgres   postgis/postgis:16-3.4   Up
 Run:
 
 ```bash
-docker exec -it seip_postgres psql -U seip_admin -d seip_db
+docker exec -it seip_postgres psql -U postgres -d seip_db
 ```
 
 Inside PostgreSQL:
