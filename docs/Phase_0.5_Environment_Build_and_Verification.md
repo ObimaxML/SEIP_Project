@@ -167,7 +167,7 @@ seip_postgres   postgis/postgis:16-3.4   Up
 Run:
 
 ```bash
-docker exec -it seip_postgres psql -U postgres -d seip_db
+docker exec -it seip_postgres_airflow psql -U postgres -d seip_db
 ```
 
 Inside PostgreSQL:
@@ -242,7 +242,7 @@ SELECT
 Run it:
 
 ```bash
-docker exec -i seip_postgres psql -U seip_admin -d seip_db < sql/00_test_connection.sql
+docker exec -i seip_postgres_airflow psql -U postgres -d seip_db < sql/00_test_connection.sql
 ```
 
 Expected: you should see a UUID and PostGIS version.

@@ -1,0 +1,2 @@
+{"timestamp": "2026-07-07T07:40:56.935088", "event_type": "PHASE_3B_START"}
+{"timestamp": "2026-07-07T07:40:57.809021", "event_type": "PHASE_3B_COMPLETE", "etl_run_id": "aaa71d08-bcf6-4c72-b54b-7dab63727826", "status": "SUCCESS", "loaded": 44, "rejected": 458}

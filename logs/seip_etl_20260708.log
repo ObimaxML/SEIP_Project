@@ -1,0 +1,8 @@
+{"timestamp": "2026-07-08T05:34:32.060690", "event_type": "PHASE_3B_START"}
+{"timestamp": "2026-07-08T05:34:32.840554", "event_type": "PHASE_3B_COMPLETE", "etl_run_id": "518aad5f-e624-4182-82a0-8642e3ebf171", "status": "SUCCESS", "loaded": 44, "rejected": 458}
+{"timestamp": "2026-07-08T05:36:34.353879", "event_type": "PHASE_3B_START"}
+{"timestamp": "2026-07-08T05:36:35.051255", "event_type": "PHASE_3B_COMPLETE", "etl_run_id": "03301e50-9b61-49e9-9d66-90ac70419b85", "status": "SUCCESS", "loaded": 44, "rejected": 458}
+{"timestamp": "2026-07-08T05:42:11.812666", "event_type": "PHASE_3B_START"}
+{"timestamp": "2026-07-08T05:42:12.523555", "event_type": "PHASE_3B_COMPLETE", "etl_run_id": "c98f5ab7-b22a-49a3-9c3c-7b3b3d5d7874", "status": "SUCCESS", "loaded": 44, "rejected": 458}
+{"timestamp": "2026-07-08T05:45:13.672136", "event_type": "PHASE_3B_START"}
+{"timestamp": "2026-07-08T05:45:14.343557", "event_type": "PHASE_3B_COMPLETE", "etl_run_id": "150622b3-b2b9-4270-8743-58083ef8ae52", "status": "SUCCESS", "loaded": 44, "rejected": 458}
