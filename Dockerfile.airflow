@@ -1,0 +1,5 @@
+FROM apache/airflow:3.2.2
+USER root
+COPY requirements.minimal.txt /requirements.minimal.txt
+RUN python -m pip install --no-cache-dir -r /requirements.minimal.txt && rm /requirements.minimal.txt
+USER airflow

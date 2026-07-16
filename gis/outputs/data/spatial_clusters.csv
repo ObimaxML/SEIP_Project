@@ -1,0 +1,8 @@
+person_key,township_code,ward_number,latitude,longitude,currently_employed,age,training_interest,preferred_training_area,has_smartphone,transport_mode,currently_employed_bool,dbscan_cluster,intervention_zone
+1,SOWETO,WARD_001,-26.2311,27.9226,False,28,True,Data Analytics,True,Taxi,False,0,2
+2,SOWETO,WARD_001,-26.235,27.925,False,22,True,Microsoft Excel,True,Taxi,False,0,2
+4,ALEXANDRA,WARD_003,-26.1039,28.0989,False,25,True,Customer Service,True,Taxi,False,1,0
+5,ALEXANDRA,WARD_003,-26.108,28.101,False,33,True,Digital Marketing,False,Taxi,False,1,0
+6,DIEPSLOOT,WARD_004,-25.9333,28.0167,False,24,True,Plumbing,False,Taxi,False,-1,0
+8,ORANGE_FARM,WARD_005,-26.4833,27.8667,False,29,True,Business Management,False,Taxi,False,-1,1
+10,TEMBISA,WARD_006,-26.01,28.215,False,27,True,Data Analytics,True,Taxi,False,-1,0

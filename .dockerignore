@@ -1,0 +1,33 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Virtualenvs
+.venv/
+venv/
+
+# Environment files
+.env
+.env.*
+
+# Git
+.git/
+
+# Logs and data
+logs/
+data/
+mlflow.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Test output
+.pytest_cache/
+
+# OS files
+.DS_Store
+Thumbs.db

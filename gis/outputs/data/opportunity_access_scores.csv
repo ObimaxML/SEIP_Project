@@ -1,0 +1,11 @@
+person_key,township_code,nearest_centre,nearest_centre_type,distance_km,opportunity_access_score
+1,SOWETO,Soweto Skills Hub,Training,0.7,93.0
+2,SOWETO,Soweto Skills Hub,Training,0.23,97.72
+3,SOWETO,Soweto Skills Hub,Training,0.54,94.64
+4,ALEXANDRA,Alexandra Job Centre,Placement,0.16,98.36
+5,ALEXANDRA,Alexandra Job Centre,Placement,0.35,96.52
+6,DIEPSLOOT,Alexandra Job Centre,Placement,20.83,0.0
+7,DIEPSLOOT,Alexandra Job Centre,Placement,20.32,0.0
+8,ORANGE_FARM,Soweto Skills Hub,Training,28.15,0.0
+9,TEMBISA,Tembisa ICT Hub,Training,0.21,97.86
+10,TEMBISA,Tembisa ICT Hub,Training,0.45,95.51

@@ -1,50 +1,146 @@
 services:
   seip_postgres:
     image: postgis/postgis:16-3.4
-    restart: always
     container_name: seip_postgres_airflow
+    restart: unless-stopped
     environment:
-      POSTGRES_DB: seip_db
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: Krbgp01@
+      POSTGRES_DB: ${POSTGRES_DB:-seip_db}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-Krbgp012}
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - seip_postgres_data:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-seip_db} -h localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
 
-  airflow-webserver:
-    image: apache/airflow:2.9.3
-    container_name: airflow-webserver
+  db-init:
+    image: postgis/postgis:16-3.4
+    container_name: seip_db_init
     depends_on:
       - seip_postgres
+    env_file:
+      - .env
     environment:
+      POSTGRES_HOST: seip_postgres
+      POSTGRES_DB: ${POSTGRES_DB:-seip_db}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-Krbgp012}
+      POSTGRES_PORT: ${POSTGRES_PORT:-5432}
+    volumes:
+      - .:/opt/seip:cached
+      - ./sql:/sql:ro
+    command: ["/bin/bash", "/opt/seip/docker/init_db.sh"]
+    restart: "no"
+
+  airflow-webserver:
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+    container_name: seip_airflow_webserver
+    depends_on:
+      seip_postgres:
+        condition: service_healthy
+      
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-seip_db}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-Krbgp012}
+      POSTGRES_HOST: seip_postgres
+      POSTGRES_PORT: ${POSTGRES_PORT:-5432}
+      DATABASE_URL: postgresql+psycopg2://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-Krbgp012}@seip_postgres:${POSTGRES_PORT:-5432}/${POSTGRES_DB:-seip_db}
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
-      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://postgres:Krbgp01%40@seip_postgres:5432/seip_db
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-Krbgp012}@seip_postgres:${POSTGRES_PORT:-5432}/${POSTGRES_DB:-seip_db}
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
-      AIRFLOW__WEBSERVER__SECRET_KEY: seip_airflow_secret_key
+      AIRFLOW__CORE__AUTH_MANAGER: airflow.api_fastapi.auth.managers.simple.simple_auth_manager.SimpleAuthManager
+      AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_USERS: ${AIRFLOW_ADMIN_USERNAME:-admin}:admin
+      AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_PASSWORDS_FILE: /opt/airflow/simple_auth_manager_passwords.json
+      AIRFLOW__SCHEDULER__STORE_SERIALIZED_DAGS: 'true'
+      AIRFLOW__API__SECRET_KEY: ${AIRFLOW__WEBSERVER__SECRET_KEY:-seip_airflow_secret_key}
     volumes:
       - ./airflow/dags:/opt/airflow/dags
       - ./airflow/logs:/opt/airflow/logs
       - ./airflow/plugins:/opt/airflow/plugins
+      - .:/opt/seip:cached
     ports:
       - "8080:8080"
-    command: webserver
+    entrypoint: ["/bin/bash", "/opt/seip/airflow/entrypoint.sh"]
+    command: ["api-server"]
 
   airflow-scheduler:
-    image: apache/airflow:2.9.3
-    container_name: airflow-scheduler
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+    container_name: seip_airflow_scheduler
     depends_on:
-      - airflow-webserver
+      seip_postgres:
+        condition: service_healthy
+      
+    env_file:
+      - .env
     environment:
+      POSTGRES_DB: ${POSTGRES_DB:-seip_db}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-Krbgp012}
+      POSTGRES_HOST: seip_postgres
+      POSTGRES_PORT: ${POSTGRES_PORT:-5432}
+      DATABASE_URL: postgresql+psycopg2://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-Krbgp012}@seip_postgres:${POSTGRES_PORT:-5432}/${POSTGRES_DB:-seip_db}
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
-      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://postgres:Krbgp01%40@seip_postgres:5432/seip_db
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-Krbgp012}@seip_postgres:${POSTGRES_PORT:-5432}/${POSTGRES_DB:-seip_db}
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
-      AIRFLOW__WEBSERVER__SECRET_KEY: seip_airflow_secret_key
+      AIRFLOW__CORE__AUTH_MANAGER: airflow.api_fastapi.auth.managers.simple.simple_auth_manager.SimpleAuthManager
+      AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_USERS: ${AIRFLOW_ADMIN_USERNAME:-admin}:admin
+      AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_PASSWORDS_FILE: /opt/airflow/simple_auth_manager_passwords.json
+      AIRFLOW__SCHEDULER__STORE_SERIALIZED_DAGS: 'true'
+      AIRFLOW__API__SECRET_KEY: ${AIRFLOW__WEBSERVER__SECRET_KEY:-seip_airflow_secret_key}
     volumes:
       - ./airflow/dags:/opt/airflow/dags
       - ./airflow/logs:/opt/airflow/logs
       - ./airflow/plugins:/opt/airflow/plugins
-    command: scheduler
+      - .:/opt/seip:cached
+    entrypoint: ["/bin/bash", "/opt/seip/airflow/entrypoint.sh"]
+    command: ["scheduler"]
+
+  airflow-dag-processor:
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+    container_name: seip_airflow_dag_processor
+    depends_on:
+      seip_postgres:
+        condition: service_healthy
+      
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-seip_db}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-Krbgp012}
+      POSTGRES_HOST: seip_postgres
+      POSTGRES_PORT: ${POSTGRES_PORT:-5432}
+      DATABASE_URL: postgresql+psycopg2://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-Krbgp012}@seip_postgres:${POSTGRES_PORT:-5432}/${POSTGRES_DB:-seip_db}
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-Krbgp012}@seip_postgres:${POSTGRES_PORT:-5432}/${POSTGRES_DB:-seip_db}
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+      AIRFLOW__CORE__AUTH_MANAGER: airflow.api_fastapi.auth.managers.simple.simple_auth_manager.SimpleAuthManager
+      AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_USERS: ${AIRFLOW_ADMIN_USERNAME:-admin}:admin
+      AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_PASSWORDS_FILE: /opt/airflow/simple_auth_manager_passwords.json
+      AIRFLOW__SCHEDULER__STORE_SERIALIZED_DAGS: 'true'
+      AIRFLOW__API__SECRET_KEY: ${AIRFLOW__WEBSERVER__SECRET_KEY:-seip_airflow_secret_key}
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./airflow/plugins:/opt/airflow/plugins
+      - .:/opt/seip:cached
+    entrypoint: ["/bin/bash", "/opt/seip/airflow/entrypoint.sh"]
+    command: ["dag-processor"]
 
 volumes:
   seip_postgres_data:

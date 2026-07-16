@@ -46,8 +46,8 @@ scipy
 ## Step 2 — Run GIS SQL foundation
 
 ```powershell
-Get-Content gis/sql/17_gis_foundation.sql | docker exec -i seip_postgres psql -U seip_admin -d seip_db
-Get-Content gis/sql/18_spatial_risk_views.sql | docker exec -i seip_postgres psql -U seip_admin -d seip_db
+Get-Content gis/sql/17_gis_foundation.sql | docker exec -i seip_postgres_airflow psql -U postgres -d seip_db
+Get-Content gis/sql/18_spatial_risk_views.sql | docker exec -i seip_postgres_airflow psql -U postgres -d seip_db
 ```
 
 ## Step 3 — Load sample GIS data into PostgreSQL

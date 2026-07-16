@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_9ecbeac30e301d4167ec87d84306b340 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_9ecbeac30e301d4167ec87d84306b340" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_9ecbeac30e301d4167ec87d84306b340 = L.map(
+                "map_9ecbeac30e301d4167ec87d84306b340",
+                {
+                    center: [-26.2, 28.03],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 10,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_5c8440d8bfc667c12a2319923a3eb18d = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_5c8440d8bfc667c12a2319923a3eb18d.addTo(map_9ecbeac30e301d4167ec87d84306b340);
+        
+    
+            var heat_map_3489b288e887e00a1ff3a138dc5f3f7d = L.heatLayer(
+                [[-26.2311, 27.9226], [-26.235, 27.925], [-26.1039, 28.0989], [-26.108, 28.101], [-25.9333, 28.0167], [-26.4833, 27.8667], [-26.01, 28.215]],
+                {
+  "minOpacity": 0.5,
+  "maxZoom": 18,
+  "radius": 22,
+  "blur": 14,
+}
+            );
+        
+    
+            heat_map_3489b288e887e00a1ff3a138dc5f3f7d.addTo(map_9ecbeac30e301d4167ec87d84306b340);
+        
+    
+            var marker_cluster_aa67ec77a40aadfe1157c47a214f03a5 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_2fd37eba7bf221bf44b4473bd54e0e79 = L.circleMarker(
+                [-26.2311, 27.9226],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_aa67ec77a40aadfe1157c47a214f03a5);
+        
+    
+        var popup_dde5abbd37046d09f7f592e5683fb648 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4751a78961a8d47fd72eceac3cbef379 = $(`<div id="html_4751a78961a8d47fd72eceac3cbef379" style="width: 100.0%; height: 100.0%;">         <b>Township:</b> SOWETO<br>         <b>Ward:</b> WARD_001<br>         <b>Age:</b> 28<br>         <b>Employed:</b> False<br>         <b>Training Interest:</b> True<br>         <b>Preferred Training:</b> Data Analytics         </div>`)[0];
+                popup_dde5abbd37046d09f7f592e5683fb648.setContent(html_4751a78961a8d47fd72eceac3cbef379);
+            
+        
+
+        circle_marker_2fd37eba7bf221bf44b4473bd54e0e79.bindPopup(popup_dde5abbd37046d09f7f592e5683fb648)
+        ;
+
+        
+    
+    
+            var circle_marker_3c1b16f1dac4501d8a6849970fd5971c = L.circleMarker(
+                [-26.235, 27.925],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_aa67ec77a40aadfe1157c47a214f03a5);
+        
+    
+        var popup_28f8c0902e877ffdaff22a38d6addb94 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5d563bdabe48381effc077976e9db5f1 = $(`<div id="html_5d563bdabe48381effc077976e9db5f1" style="width: 100.0%; height: 100.0%;">         <b>Township:</b> SOWETO<br>         <b>Ward:</b> WARD_001<br>         <b>Age:</b> 22<br>         <b>Employed:</b> False<br>         <b>Training Interest:</b> True<br>         <b>Preferred Training:</b> Microsoft Excel         </div>`)[0];
+                popup_28f8c0902e877ffdaff22a38d6addb94.setContent(html_5d563bdabe48381effc077976e9db5f1);
+            
+        
+
+        circle_marker_3c1b16f1dac4501d8a6849970fd5971c.bindPopup(popup_28f8c0902e877ffdaff22a38d6addb94)
+        ;
+
+        
+    
+    
+            var circle_marker_1f3c953bb4a4711fd0532388d861d424 = L.circleMarker(
+                [-26.24, 27.93],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_aa67ec77a40aadfe1157c47a214f03a5);
+        
+    
+        var popup_8e270ef843e5332909c0ec91c9783683 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d47c5081095cdb452fcaeba341a66781 = $(`<div id="html_d47c5081095cdb452fcaeba341a66781" style="width: 100.0%; height: 100.0%;">         <b>Township:</b> SOWETO<br>         <b>Ward:</b> WARD_002<br>         <b>Age:</b> 31<br>         <b>Employed:</b> True<br>         <b>Training Interest:</b> False<br>         <b>Preferred Training:</b> SQL         </div>`)[0];
+                popup_8e270ef843e5332909c0ec91c9783683.setContent(html_d47c5081095cdb452fcaeba341a66781);
+            
+        
+
+        circle_marker_1f3c953bb4a4711fd0532388d861d424.bindPopup(popup_8e270ef843e5332909c0ec91c9783683)
+        ;
+
+        
+    
+    
+            var circle_marker_9f8c434ce887590d95e2b3a75fb82b12 = L.circleMarker(
+                [-26.1039, 28.0989],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_aa67ec77a40aadfe1157c47a214f03a5);
+        
+    
+        var popup_914b75439c97e3942c313ecb3fd557cd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ccce352530802c44953e6316a6f69f75 = $(`<div id="html_ccce352530802c44953e6316a6f69f75" style="width: 100.0%; height: 100.0%;">         <b>Township:</b> ALEXANDRA<br>         <b>Ward:</b> WARD_003<br>         <b>Age:</b> 25<br>         <b>Employed:</b> False<br>         <b>Training Interest:</b> True<br>         <b>Preferred Training:</b> Customer Service         </div>`)[0];
+                popup_914b75439c97e3942c313ecb3fd557cd.setContent(html_ccce352530802c44953e6316a6f69f75);
+            
+        
+
+        circle_marker_9f8c434ce887590d95e2b3a75fb82b12.bindPopup(popup_914b75439c97e3942c313ecb3fd557cd)
+        ;
+
+        
+    
+    
+            var circle_marker_9f1a90430035f70d8344d4d174c9901a = L.circleMarker(
+                [-26.108, 28.101],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_aa67ec77a40aadfe1157c47a214f03a5);
+        
+    
+        var popup_45212bffdafc83fb0d90a65d9818b869 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e76cffe85fe3201207b7ac2189e08bcd = $(`<div id="html_e76cffe85fe3201207b7ac2189e08bcd" style="width: 100.0%; height: 100.0%;">         <b>Township:</b> ALEXANDRA<br>         <b>Ward:</b> WARD_003<br>         <b>Age:</b> 33<br>         <b>Employed:</b> False<br>         <b>Training Interest:</b> True<br>         <b>Preferred Training:</b> Digital Marketing         </div>`)[0];
+                popup_45212bffdafc83fb0d90a65d9818b869.setContent(html_e76cffe85fe3201207b7ac2189e08bcd);
+            
+        
+
+        circle_marker_9f1a90430035f70d8344d4d174c9901a.bindPopup(popup_45212bffdafc83fb0d90a65d9818b869)
+        ;
+
+        
+    
+    
+            var circle_marker_007146e630299d0eebd53d9935fb18c2 = L.circleMarker(
+                [-25.9333, 28.0167],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_aa67ec77a40aadfe1157c47a214f03a5);
+        
+    
+        var popup_e67d7497b7d69d928dea6fcd830a97e3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_91ce384a43e16493d0b6f47a39187bed = $(`<div id="html_91ce384a43e16493d0b6f47a39187bed" style="width: 100.0%; height: 100.0%;">         <b>Township:</b> DIEPSLOOT<br>         <b>Ward:</b> WARD_004<br>         <b>Age:</b> 24<br>         <b>Employed:</b> False<br>         <b>Training Interest:</b> True<br>         <b>Preferred Training:</b> Plumbing         </div>`)[0];
+                popup_e67d7497b7d69d928dea6fcd830a97e3.setContent(html_91ce384a43e16493d0b6f47a39187bed);
+            
+        
+
+        circle_marker_007146e630299d0eebd53d9935fb18c2.bindPopup(popup_e67d7497b7d69d928dea6fcd830a97e3)
+        ;
+
+        
+    
+    
+            var circle_marker_a7f9835088fe199ed876067ba28dfe85 = L.circleMarker(
+                [-25.937, 28.02],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_aa67ec77a40aadfe1157c47a214f03a5);
+        
+    
+        var popup_54b29fccfe761f8125880865e2ed1e99 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b30be892d986c2028fa8072a06284f54 = $(`<div id="html_b30be892d986c2028fa8072a06284f54" style="width: 100.0%; height: 100.0%;">         <b>Township:</b> DIEPSLOOT<br>         <b>Ward:</b> WARD_004<br>         <b>Age:</b> 38<br>         <b>Employed:</b> True<br>         <b>Training Interest:</b> False<br>         <b>Preferred Training:</b> Plumbing         </div>`)[0];
+                popup_54b29fccfe761f8125880865e2ed1e99.setContent(html_b30be892d986c2028fa8072a06284f54);
+            
+        
+
+        circle_marker_a7f9835088fe199ed876067ba28dfe85.bindPopup(popup_54b29fccfe761f8125880865e2ed1e99)
+        ;
+
+        
+    
+    
+            var circle_marker_b2c3d78127710dd01c5a359ce4e7b117 = L.circleMarker(
+                [-26.4833, 27.8667],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_aa67ec77a40aadfe1157c47a214f03a5);
+        
+    
+        var popup_a9bcc5dadb7dce26f445bb1ad3af738b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_07fe5d9ca52a63fb910813240497f2c4 = $(`<div id="html_07fe5d9ca52a63fb910813240497f2c4" style="width: 100.0%; height: 100.0%;">         <b>Township:</b> ORANGE_FARM<br>         <b>Ward:</b> WARD_005<br>         <b>Age:</b> 29<br>         <b>Employed:</b> False<br>         <b>Training Interest:</b> True<br>         <b>Preferred Training:</b> Business Management         </div>`)[0];
+                popup_a9bcc5dadb7dce26f445bb1ad3af738b.setContent(html_07fe5d9ca52a63fb910813240497f2c4);
+            
+        
+
+        circle_marker_b2c3d78127710dd01c5a359ce4e7b117.bindPopup(popup_a9bcc5dadb7dce26f445bb1ad3af738b)
+        ;
+
+        
+    
+    
+            var circle_marker_a722933da001a6231b3688250d53ae76 = L.circleMarker(
+                [-26.0063, 28.21],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_aa67ec77a40aadfe1157c47a214f03a5);
+        
+    
+        var popup_f5aeddcadbc597d75cbd97c5a0b9dae1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e620f6ed1d6ba9c2777947d7360b22e1 = $(`<div id="html_e620f6ed1d6ba9c2777947d7360b22e1" style="width: 100.0%; height: 100.0%;">         <b>Township:</b> TEMBISA<br>         <b>Ward:</b> WARD_006<br>         <b>Age:</b> 35<br>         <b>Employed:</b> True<br>         <b>Training Interest:</b> False<br>         <b>Preferred Training:</b> SQL         </div>`)[0];
+                popup_f5aeddcadbc597d75cbd97c5a0b9dae1.setContent(html_e620f6ed1d6ba9c2777947d7360b22e1);
+            
+        
+
+        circle_marker_a722933da001a6231b3688250d53ae76.bindPopup(popup_f5aeddcadbc597d75cbd97c5a0b9dae1)
+        ;
+
+        
+    
+    
+            var circle_marker_147ad0fd64191f29a1ca70037bf1a03a = L.circleMarker(
+                [-26.01, 28.215],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_aa67ec77a40aadfe1157c47a214f03a5);
+        
+    
+        var popup_103afcfbd93088d4328bef1c12096d27 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4cb79c7ab4a5f815db61853878f522fe = $(`<div id="html_4cb79c7ab4a5f815db61853878f522fe" style="width: 100.0%; height: 100.0%;">         <b>Township:</b> TEMBISA<br>         <b>Ward:</b> WARD_006<br>         <b>Age:</b> 27<br>         <b>Employed:</b> False<br>         <b>Training Interest:</b> True<br>         <b>Preferred Training:</b> Data Analytics         </div>`)[0];
+                popup_103afcfbd93088d4328bef1c12096d27.setContent(html_4cb79c7ab4a5f815db61853878f522fe);
+            
+        
+
+        circle_marker_147ad0fd64191f29a1ca70037bf1a03a.bindPopup(popup_103afcfbd93088d4328bef1c12096d27)
+        ;
+
+        
+    
+    
+            marker_cluster_aa67ec77a40aadfe1157c47a214f03a5.addTo(map_9ecbeac30e301d4167ec87d84306b340);
+        
+    
+            var marker_bf06e24f17acd8323cecd4bedff3a9ee = L.marker(
+                [-26.0388, 28.1079],
+                {
+}
+            ).addTo(map_9ecbeac30e301d4167ec87d84306b340);
+        
+    
+            var icon_80805d061fe738671cb11b7e5d12e8cc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "education",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a7a7e722c31c78e770921912300fba54 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8bd44b4b4db07c11f33e0a63ae854e60 = $(`<div id="html_8bd44b4b4db07c11f33e0a63ae854e60" style="width: 100.0%; height: 100.0%;">             <b>Recommended Training Centre</b><br>             <b>Centre ID:</b> 0<br>             <b>Demand Count:</b> 4<br>             <b>Top Township:</b> ALEXANDRA<br>             <b>Top Training Area:</b> Customer Service             </div>`)[0];
+                popup_a7a7e722c31c78e770921912300fba54.setContent(html_8bd44b4b4db07c11f33e0a63ae854e60);
+            
+        
+
+        marker_bf06e24f17acd8323cecd4bedff3a9ee.bindPopup(popup_a7a7e722c31c78e770921912300fba54)
+        ;
+
+        
+    
+    
+                marker_bf06e24f17acd8323cecd4bedff3a9ee.setIcon(icon_80805d061fe738671cb11b7e5d12e8cc);
+            
+    
+            var marker_f015eaebb694d5974ef044d18191025d = L.marker(
+                [-26.4833, 27.8667],
+                {
+}
+            ).addTo(map_9ecbeac30e301d4167ec87d84306b340);
+        
+    
+            var icon_cbd20f28f0ae37aa2261b20272f6b134 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "education",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f51d9eb8767c2740b5027f5d67dfe64d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6d3a6b255899649c1eb0542105682b2b = $(`<div id="html_6d3a6b255899649c1eb0542105682b2b" style="width: 100.0%; height: 100.0%;">             <b>Recommended Training Centre</b><br>             <b>Centre ID:</b> 1<br>             <b>Demand Count:</b> 1<br>             <b>Top Township:</b> ORANGE_FARM<br>             <b>Top Training Area:</b> Business Management             </div>`)[0];
+                popup_f51d9eb8767c2740b5027f5d67dfe64d.setContent(html_6d3a6b255899649c1eb0542105682b2b);
+            
+        
+
+        marker_f015eaebb694d5974ef044d18191025d.bindPopup(popup_f51d9eb8767c2740b5027f5d67dfe64d)
+        ;
+
+        
+    
+    
+                marker_f015eaebb694d5974ef044d18191025d.setIcon(icon_cbd20f28f0ae37aa2261b20272f6b134);
+            
+    
+            var marker_c6d93cd974554f2c0a55b463cba3955c = L.marker(
+                [-26.23305, 27.9238],
+                {
+}
+            ).addTo(map_9ecbeac30e301d4167ec87d84306b340);
+        
+    
+            var icon_7fb3f60e27f56a884de475505eb54bd5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "education",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e3306a8461f2e7f118f7f20183d867ae = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_02bd4f06543cc774c587945db027794f = $(`<div id="html_02bd4f06543cc774c587945db027794f" style="width: 100.0%; height: 100.0%;">             <b>Recommended Training Centre</b><br>             <b>Centre ID:</b> 2<br>             <b>Demand Count:</b> 2<br>             <b>Top Township:</b> SOWETO<br>             <b>Top Training Area:</b> Data Analytics             </div>`)[0];
+                popup_e3306a8461f2e7f118f7f20183d867ae.setContent(html_02bd4f06543cc774c587945db027794f);
+            
+        
+
+        marker_c6d93cd974554f2c0a55b463cba3955c.bindPopup(popup_e3306a8461f2e7f118f7f20183d867ae)
+        ;
+
+        
+    
+    
+                marker_c6d93cd974554f2c0a55b463cba3955c.setIcon(icon_7fb3f60e27f56a884de475505eb54bd5);
+            
+    
+            var layer_control_1df76c0d14cf9ff06d5bab3f6932fb64_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_5c8440d8bfc667c12a2319923a3eb18d,
+                },
+                overlays :  {
+                    "Unemployment Heatmap" : heat_map_3489b288e887e00a1ff3a138dc5f3f7d,
+                    "Job Seeker Points" : marker_cluster_aa67ec77a40aadfe1157c47a214f03a5,
+                },
+            };
+            let layer_control_1df76c0d14cf9ff06d5bab3f6932fb64 = L.control.layers(
+                layer_control_1df76c0d14cf9ff06d5bab3f6932fb64_layers.base_layers,
+                layer_control_1df76c0d14cf9ff06d5bab3f6932fb64_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_9ecbeac30e301d4167ec87d84306b340);
+
+        
+</script>
+</html>

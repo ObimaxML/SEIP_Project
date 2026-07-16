@@ -7,16 +7,25 @@ load_dotenv()
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
-POSTGRES_DB = os.getenv("POSTGRES_DB", "seip_db")
-POSTGRES_USER = os.getenv("POSTGRES_USER", "postgres")
-POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD", "Krbgp012")
-POSTGRES_HOST = os.getenv("POSTGRES_HOST", "localhost")
+POSTGRES_DB = os.getenv("POSTGRES_DB")
+POSTGRES_USER = os.getenv("POSTGRES_USER")
+POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
+POSTGRES_HOST = os.getenv("POSTGRES_HOST")
 POSTGRES_PORT = os.getenv("POSTGRES_PORT", "5432")
 
-DATABASE_URL = (
-    f"postgresql+psycopg2://{POSTGRES_USER}:{POSTGRES_PASSWORD}"
-    f"@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
-)
+DATABASE_URL = os.getenv("DATABASE_URL")
+if not DATABASE_URL:
+    POSTGRES_DB = POSTGRES_DB or "seip_db"
+    POSTGRES_USER = POSTGRES_USER or "postgres"
+    POSTGRES_PASSWORD = POSTGRES_PASSWORD or "Krbgp012"
+    POSTGRES_HOST = POSTGRES_HOST or "localhost"
+    DATABASE_URL = (
+        f"postgresql+psycopg2://{POSTGRES_USER}:{POSTGRES_PASSWORD}"
+        f"@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
+    )
+else:
+    if DATABASE_URL.startswith("postgresql://") and "psycopg2" not in DATABASE_URL:
+        DATABASE_URL = DATABASE_URL.replace("postgresql://", "postgresql+psycopg2://", 1)
 
 POPIA_SECRET_KEY = os.getenv("POPIA_SECRET_KEY")
 POPIA_HMAC_SECRET = os.getenv("POPIA_HMAC_SECRET", "dev-hmac-secret-change-me")

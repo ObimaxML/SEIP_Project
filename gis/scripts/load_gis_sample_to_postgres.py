@@ -3,6 +3,12 @@ import pandas as pd
 from sqlalchemy import create_engine, text
 from src.config.settings import DATABASE_URL
 
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+
+
+
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 SAMPLE_PATH = PROJECT_ROOT / "gis" / "sample_data" / "job_seeker_points_sample.csv"
 

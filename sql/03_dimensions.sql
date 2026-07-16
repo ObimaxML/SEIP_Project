@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS seip_core.dim_person (
     id_number_hash VARCHAR(256) UNIQUE,
     gender_code VARCHAR(30),
     date_of_birth DATE,
-    age INT GENERATED ALWAYS AS (DATE_PART('year', AGE(date_of_birth))) STORED,
+    age INT,
     nationality VARCHAR(100),
     south_african_citizen BOOLEAN,
     highest_qualification VARCHAR(150),
